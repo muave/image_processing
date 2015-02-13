@@ -1,0 +1,17 @@
+﻿Build started 13/02/2015 08:52:46.
+     1>Project "C:\Users\Administrator\Documents\CL-Eye Platform SDK\Samples\CLEyeMulticam\C++\CLEyeLatency\CLEyeLatency.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\Release\CLEyeLatency.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         CLEyeLatency.vcxproj -> C:\Users\Administrator\Documents\CL-Eye Platform SDK\Samples\CLEyeMulticam\C++\CLEyeLatency\..\..\..\..\Bin\CLEyeLatency.exe
+       FinalizeBuildStatus:
+         Deleting file ".\Release\CLEyeLatency.unsuccessfulbuild".
+         Touching ".\Release\CLEyeLatency.lastbuildstate".
+     1>Done Building Project "C:\Users\Administrator\Documents\CL-Eye Platform SDK\Samples\CLEyeMulticam\C++\CLEyeLatency\CLEyeLatency.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.67

@@ -1,0 +1,17 @@
+﻿Build started 13/02/2015 08:52:47.
+     1>Project "C:\Users\Administrator\Documents\CL-Eye Platform SDK\Samples\CLEyeMulticam\C++\CLEyeFaceTracker\CLEyeFaceTracker.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\Release\CLEyeFaceTracker.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         CLEyeFaceTracker.vcxproj -> C:\Users\Administrator\Documents\CL-Eye Platform SDK\Samples\CLEyeMulticam\C++\CLEyeFaceTracker\..\..\..\..\Bin\CLEyeFaceTracker.exe
+       FinalizeBuildStatus:
+         Deleting file ".\Release\CLEyeFaceTracker.unsuccessfulbuild".
+         Touching ".\Release\CLEyeFaceTracker.lastbuildstate".
+     1>Done Building Project "C:\Users\Administrator\Documents\CL-Eye Platform SDK\Samples\CLEyeMulticam\C++\CLEyeFaceTracker\CLEyeFaceTracker.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.28
