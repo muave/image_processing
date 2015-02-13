@@ -22,6 +22,7 @@
 #include "Fruit.h"
 //#include "stdafx.h"
 
+
 using namespace cv;
 //initial min and max HSV filter values.
 //these will be changed using trackbars
@@ -196,8 +197,10 @@ int main(int argc, char* argv[])
 	//all of our operations will be performed within this loop
 	while(1){
 		//store image to matrix
-		capture.read(cameraFeed);
+		CLEyeCameraCapture:(cameraFeed);
+		//capture.read(cameraFeed);
 		//convert frame from BGR to HSV colorspace
+		int COLOR_BGR2HSV = 40;
 		cvtColor(cameraFeed,HSV,COLOR_BGR2HSV);
 
 		if(calibrationMode==true){

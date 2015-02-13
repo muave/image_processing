@@ -1,23 +1,16 @@
-﻿Build started 13/02/2015 12:57:35.
-     1>Project "C:\Users\Administrator\Documents\CL-Eye Platform SDK\Samples\CLEyeMulticam\C++\CLEyeStereoVision\CLEyeStereoVision.vcxproj" on node 2 (build target(s)).
+﻿Build started 13/02/2015 15:52:29.
+     1>Project "C:\Users\Administrator\Documents\Visual Studio 2010\Projects\image_processing\multicam\CLEyeStereoVision\CLEyeStereoVision.vcxproj" on node 3 (build target(s)).
      1>InitializeBuildStatus:
-         Touching ".\Debug\CLEyeStereoVision.unsuccessfulbuild".
+         Creating ".\Debug\CLEyeStereoVision.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\..\..\include /I..\..\..\..\include\opencv2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D WIN32 /D TARGET_WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /Gd /TP /wd4996 /wd4700 /wd4244 /wd4553 /wd4018 /wd4101 /wd4800 /wd4409 /wd4305 /analyze- /errorReport:prompt CLEyeStereoVision.cpp stdafx.cpp
-         CLEyeStereoVision.cpp
-         Generating Code...
-         Compiling...
          stdafx.cpp
+     1>c:\users\administrator\documents\visual studio 2010\projects\image_processing\multicam\global.h(23): fatal error C1083: Cannot open include file: 'CLEyeMulticam.h': No such file or directory
+         CLEyeStereoVision.cpp
+     1>c:\users\administrator\documents\visual studio 2010\projects\image_processing\multicam\global.h(23): fatal error C1083: Cannot open include file: 'CLEyeMulticam.h': No such file or directory
          Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\..\..\Bin\CLEyeStereoVisiond.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\..\..\lib /LIBPATH:..\..\..\..\lib\opencv2 opencv_calib3d2410d.lib opencv_contrib2410d.lib opencv_core2410d.lib opencv_features2d2410d.lib opencv_flann2410d.lib opencv_gpu2410d.lib opencv_highgui2410d.lib opencv_imgproc2410d.lib opencv_legacy2410d.lib opencv_ml2410d.lib opencv_nonfree2410d.lib opencv_objdetect2410d.lib opencv_ocl2410d.lib opencv_photo2410d.lib opencv_stitching2410d.lib opencv_superres2410d.lib opencv_ts2410d.lib opencv_video2410d.lib opencv_videostab2410d.lib CLEyeMulticam.lib Comctl32.lib opencv_calib3d230d.lib opencv_contrib230d.lib opencv_core230d.lib opencv_features2d230d.lib opencv_flann230d.lib opencv_gpu230d.lib opencv_haartraining_engined.lib opencv_highgui230d.lib opencv_imgproc230d.lib opencv_legacy230d.lib opencv_ml230d.lib opencv_objdetect230d.lib opencv_video230d.lib libjasperd.lib libjpegd.lib libpngd.lib libtiffd.lib zlibd.lib vfw32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Administrator\Documents\CL-Eye Platform SDK\Bin\CLEyeStereoVisiond.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\..\..\Bin\CLEyeStereoVisiond.lib" /MACHINE:X86 .\Debug\CLEyeStereoVision.obj
-         .\Debug\stdafx.obj
-         CLEyeStereoVision.vcxproj -> C:\Users\Administrator\Documents\CL-Eye Platform SDK\Samples\CLEyeMulticam\C++\CLEyeStereoVision\..\..\..\..\Bin\CLEyeStereoVisiond.exe
-       FinalizeBuildStatus:
-         Deleting file ".\Debug\CLEyeStereoVision.unsuccessfulbuild".
-         Touching ".\Debug\CLEyeStereoVision.lastbuildstate".
-     1>Done Building Project "C:\Users\Administrator\Documents\CL-Eye Platform SDK\Samples\CLEyeMulticam\C++\CLEyeStereoVision\CLEyeStereoVision.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\Administrator\Documents\Visual Studio 2010\Projects\image_processing\multicam\CLEyeStereoVision\CLEyeStereoVision.vcxproj" (build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:08.76
+Time Elapsed 00:00:03.19
