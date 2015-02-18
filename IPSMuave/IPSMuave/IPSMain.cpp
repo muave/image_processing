@@ -68,12 +68,79 @@ void createTrackbars(){
 
 class IPSCameraCapture
 {
-	
+	HANDLE _hThread;
+	Mat _cameraFeed;
+	Mat _threshold;
+	bool _useMorphOps;
+	bool _trackObject;
+	int _x,_y;
+	bool _running;
+	Mat _hsv;
+	VideoCapture _capture;
 
 public: 
 
 	IPSCameraCapture()
-	{}
+	{
+	}
+
+	bool StartCapture(VideoCapture capture, Mat cameraFeed,Mat threshold,bool useMorphOps,bool trackObject,int &x,int &y)
+	{
+		_running = true;
+		_cameraFeed = cameraFeed;
+		_threshold = threshold;
+		_useMorphOps = useMorphOps;
+		_trackObject = trackObject;
+		_x = x;
+		_y = y;
+		_capture = capture;
+		// Start CLEye image capture thread
+		_hThread = CreateThread(NULL, 0, &IPSCameraCapture::CaptureThread, this, 0, 0);
+		if(_hThread == NULL)
+		{
+			return false;
+		}
+	
+		return true;
+	}
+
+	void StopCapture()
+	{
+		if(!_running)	return;
+		_running = false;
+		WaitForSingleObject(_hThread, 1000);
+	}
+
+	void Run()
+	{
+		while(_running){
+				//store image to matrix
+			_capture.read(_cameraFeed);
+			//convert frame from BGR to HSV colorspace
+			cvtColor(_cameraFeed,_hsv,COLOR_BGR2HSV);
+			//filter HSV image between values and store filtered image to
+			//threshold matrix
+			inRange(_hsv,Scalar(H_MIN,S_MIN,V_MIN),Scalar(H_MAX,S_MAX,V_MAX),_threshold);
+			//perform morphological operations on thresholded image to eliminate noise
+			//and emphasize the filtered object(s)
+
+				if(_useMorphOps)
+						morphOps(_threshold);
+					//pass in thresholded frame to our object tracking function
+					//this function will return the x and y coordinates of the
+					//filtered object
+					if(_trackObject)
+						trackFilteredObject(_x,_y,_threshold,_cameraFeed);
+
+					//show frames 
+					imshow(windowName2,_threshold);
+					imshow(windowName,_cameraFeed);
+
+
+					//imshow(windowName1,HSV); we do not need it
+					waitKey(30);
+			}
+	}
 
 	string intToString(int number){
 
@@ -172,6 +239,16 @@ public:
 		}
 	}
 
+	static DWORD WINAPI CaptureThread(LPVOID instance)
+	{
+		// seed the rng with current tick count and thread id
+		srand(GetTickCount() + GetCurrentThreadId());
+		// forward thread to Capture function
+		IPSCameraCapture *pThis = (IPSCameraCapture *)instance;
+		pThis->Run();
+		return 0;
+	}
+
 };
 
 
@@ -190,7 +267,7 @@ int main(int argc, char* argv[])
 	//x and y values for the location of the object
 	int x=0, y=0;
 	//create slider bars for HSV filtering
-	HANDLE _hThread;
+	
 
 	createTrackbars();
 	//video capture object to acquire webcam feed
@@ -205,37 +282,10 @@ int main(int argc, char* argv[])
 	capture.set(CV_CAP_PROP_FRAME_HEIGHT,FRAME_HEIGHT);
 	//start an infinite loop where webcam feed is copied to cameraFeed matrix
 	//all of our operations will be performed within this loop
-	while(1){
-		//store image to matrix
-		capture.read(cameraFeed);
-		//convert frame from BGR to HSV colorspace
-		cvtColor(cameraFeed,HSV,COLOR_BGR2HSV);
-		//filter HSV image between values and store filtered image to
-		//threshold matrix
-		inRange(HSV,Scalar(H_MIN,S_MIN,V_MIN),Scalar(H_MAX,S_MAX,V_MAX),threshold);
-		//perform morphological operations on thresholded image to eliminate noise
-		//and emphasize the filtered object(s)
-		if(useMorphOps)
-		ipsCam->morphOps(threshold);
-		//pass in thresholded frame to our object tracking function
-		//this function will return the x and y coordinates of the
-		//filtered object
-		if(trackObjects)
-			ipsCam->trackFilteredObject(x,y,threshold,cameraFeed);
-
-		//show frames 
-		imshow(windowName2,threshold);
-		imshow(windowName,cameraFeed);
-		//imshow(windowName1,HSV); we do not need it
-		
-
-		//delay 30ms so that screen can refresh.
-		//image will not appear without this waitKey() command
-		waitKey(30);
-	}
 
 
-
+	
+	ipsCam->StartCapture(capture,cameraFeed,threshold,useMorphOps,trackObjects,x,y);
 
 
 
